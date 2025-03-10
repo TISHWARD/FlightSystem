@@ -4,22 +4,27 @@ namespace FlightBookingSystemAPI.Models
 {
     public class Flight
     {
-        internal object MasterBookings;
-
-        public int CheckinId { get; set; }
+        public int FlightId { get; set; }
 
         [Required]
-        public int BookingId { get; set; }
+        [StringLength(10, ErrorMessage = "Flight number cannot be longer than 10 characters.")]
+        public string FlightNumber { get; set; }
 
         [Required]
-        [DataType(DataType.Date, ErrorMessage = "Invalid check-in date format.")]
-        [Range(typeof(DateTime), "1/1/1900", "12/31/2100", ErrorMessage = "Check-in date must be between 01/01/1900 and 12/31/2100.")]
-        public DateTime CheckinDate { get; set; }
+        public string DepartureAirport{ get; set; }
 
         [Required]
-        [StringLength(20, ErrorMessage = "Check-in status cannot be longer than 20 characters.")]
-        public string CheckinStatus { get; set; }
+        public string ArrivalAirport { get; set; }
 
-        public MasterBooking MasterBooking { get; set; }
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Invalid departure date format.")]
+        public DateTime DepartureDate { get; set; }
+
+        [Required]
+        [DataType(DataType.Date, ErrorMessage = "Invalid arrival date format.")]
+        public DateTime ArrivalDate { get; set; }
+
+        public ICollection<MasterBooking> MasterBookings { get; set; }
+
     }
 }
