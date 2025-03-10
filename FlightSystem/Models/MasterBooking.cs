@@ -5,8 +5,7 @@ namespace FlightBookingSystemAPI.Models
     public class MasterBooking
     {
         [Key]
-        public int BookingId { get; set; }  // Primary key
-        //public int BookingId { get; set; }
+        public int BookingId { get; set; }  // ReferenceNumber
 
         [Required]
         public int UserId { get; set; }
@@ -27,25 +26,24 @@ namespace FlightBookingSystemAPI.Models
         [Range(0, double.MaxValue, ErrorMessage = "Total amount must be a positive value.")]
         public decimal TotalAmount { get; set; }
 
-        [Required]
-        [StringLength(5, ErrorMessage = "Currency code must be 3 characters.")]
-        public string Currency { get; set; }
+        //[Required]
+        //[StringLength(5, ErrorMessage = "Currency code must be 3 characters.")]
+        //public string Currency { get; set; }
 
         [Required]
         [StringLength(20, ErrorMessage = "Payment status cannot be longer than 20 characters.")]
         public string PaymentStatus { get; set; }
 
-        [StringLength(50, ErrorMessage = "Payment method cannot be longer than 50 characters.")]
-        public string PaymentMethod { get; set; }
+        //[StringLength(50, ErrorMessage = "Payment method cannot be longer than 50 characters.")]
+        //public string PaymentMethod { get; set; }
 
         [StringLength(20, ErrorMessage = "Seat class cannot be longer than 20 characters.")]
         public string SeatClass { get; set; }
 
-        [StringLength(200, ErrorMessage = "Special requests cannot be longer than 200 characters.")]
-        public string SpecialRequests { get; set; }
+     
 
-        [StringLength(20, ErrorMessage = "Baggage allowance cannot be longer than 20 characters.")]
-        public string BaggageAllowance { get; set; }
+        //[StringLength(20, ErrorMessage = "Baggage allowance cannot be longer than 20 characters.")]
+        //public string BaggageAllowance { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Total bags checked cannot be negative.")]
         public int TotalBagsChecked { get; set; }
@@ -56,8 +54,7 @@ namespace FlightBookingSystemAPI.Models
         [StringLength(20, ErrorMessage = "Flight type cannot be longer than 20 characters.")]
         public string FlightType { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+    
 
         public User User { get; set; }
         public Flight Flight { get; set; }

@@ -8,7 +8,7 @@ namespace FlightBookingSystemAPI.Models
 
         [Required]
         [StringLength(10, ErrorMessage = "Flight number cannot be longer than 10 characters.")]
-        public string FlightNumber { get; set; }
+        public string FlightName { get; set; }
 
         [Required]
         public string DepartureAirport{ get; set; }

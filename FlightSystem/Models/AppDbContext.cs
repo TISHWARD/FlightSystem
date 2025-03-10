@@ -26,6 +26,10 @@ namespace FlightBookingSystemAPI.Models
                 .OnDelete(DeleteBehavior.Cascade);  // Optional: Define behavior on delete
 
             // One-to-many relationship between Flig
+            modelBuilder.Entity<CheckIn>()
+       .HasOne(c => c.MasterBooking)
+       .WithOne(m => m.CheckIn)
+       .HasForeignKey<CheckIn>(c => c.MasterBookingId);
         }
     }
 }

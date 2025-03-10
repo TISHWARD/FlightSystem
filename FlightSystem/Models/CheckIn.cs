@@ -4,12 +4,13 @@ namespace FlightBookingSystemAPI.Models
 {
     public class CheckIn
     {
-        internal object MasterBookingId;
 
         public int CheckinId { get; set; }
+        public int MasterBookingId { get; set; }
 
         [Required]
         public int BookingId { get; set; }
+        public int SeatNumber { get; set; }
 
         [Required]
         [DataType(DataType.Date, ErrorMessage = "Invalid check-in date format.")]
