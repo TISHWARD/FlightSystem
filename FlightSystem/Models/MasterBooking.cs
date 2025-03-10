@@ -22,10 +22,7 @@ namespace FlightBookingSystemAPI.Models
         [StringLength(20, ErrorMessage = "Booking status cannot be longer than 20 characters.")]
         public string BookingStatus { get; set; }
 
-        [Required]
-        [Range(0, double.MaxValue, ErrorMessage = "Total amount must be a positive value.")]
-        public decimal TotalAmount { get; set; }
-
+  
         //[Required]
         //[StringLength(5, ErrorMessage = "Currency code must be 3 characters.")]
         //public string Currency { get; set; }

@@ -16,20 +16,19 @@ namespace FlightBookingSystemAPI.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configure relationships here if needed:
 
-            // One-to-many relationship between User and MasterBooking
+
+            // One-to-many  between User and MasterBooking
             modelBuilder.Entity<MasterBooking>()
                 .HasOne(m => m.User)  // MasterBooking has one User
                 .WithMany(u => u.MasterBookings)  // User can have many MasterBookings
                 .HasForeignKey(m => m.UserId)  // Foreign key is UserId in MasterBooking
-                .OnDelete(DeleteBehavior.Cascade);  // Optional: Define behavior on delete
+                .OnDelete(DeleteBehavior.Cascade); 
 
-            // One-to-many relationship between Flig
             modelBuilder.Entity<CheckIn>()
-       .HasOne(c => c.MasterBooking)
-       .WithOne(m => m.CheckIn)
-       .HasForeignKey<CheckIn>(c => c.MasterBookingId);
+                .HasOne(c => c.MasterBooking)
+                .WithOne(m => m.CheckIn)
+                .HasForeignKey<CheckIn>(c => c.MasterBookingId);
         }
     }
 }
