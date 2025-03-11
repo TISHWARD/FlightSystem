@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlightBookingSystemAPI.Models
 {
     public class MasterBooking
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int BookingId { get; set; }  // ReferenceNumber
 
         [Required]

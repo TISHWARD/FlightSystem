@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlightBookingSystemAPI.Models
 {
     public class Flight
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FlightId { get; set; }
 
         [Required]

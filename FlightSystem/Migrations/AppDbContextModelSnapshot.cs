@@ -25,10 +25,7 @@ namespace FlightBookingSystemAPI.Migrations
             modelBuilder.Entity("FlightBookingSystemAPI.Models.CheckIn", b =>
                 {
                     b.Property<int>("CheckinId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CheckinId"));
 
                     b.Property<int>("BookingId")
                         .HasColumnType("int");
@@ -58,10 +55,7 @@ namespace FlightBookingSystemAPI.Migrations
             modelBuilder.Entity("FlightBookingSystemAPI.Models.Flight", b =>
                 {
                     b.Property<int>("FlightId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FlightId"));
 
                     b.Property<string>("ArrivalAirport")
                         .IsRequired()
@@ -90,10 +84,7 @@ namespace FlightBookingSystemAPI.Migrations
             modelBuilder.Entity("FlightBookingSystemAPI.Models.MasterBooking", b =>
                 {
                     b.Property<int>("BookingId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"));
 
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
@@ -121,9 +112,6 @@ namespace FlightBookingSystemAPI.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("TotalBagsChecked")
                         .HasColumnType("int");
 
@@ -145,10 +133,7 @@ namespace FlightBookingSystemAPI.Migrations
             modelBuilder.Entity("FlightBookingSystemAPI.Models.Payment", b =>
                 {
                     b.Property<int>("PaymentId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
 
                     b.Property<decimal>("AmountPaid")
                         .HasColumnType("decimal(18,2)");
@@ -177,10 +162,7 @@ namespace FlightBookingSystemAPI.Migrations
             modelBuilder.Entity("FlightBookingSystemAPI.Models.User", b =>
                 {
                     b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<DateTime>("Dob")
                         .HasColumnType("datetime2");

@@ -5,25 +5,18 @@
 namespace FlightBookingSystemAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class add4 : Migration
+    public partial class add3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Password",
-                table: "Users",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Password",
-                table: "Users");
+
         }
     }
 }

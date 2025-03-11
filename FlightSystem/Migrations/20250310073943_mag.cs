@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FlightBookingSystemAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class mag : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,9 +17,9 @@ namespace FlightBookingSystemAPI.Migrations
                 {
                     FlightId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FlightNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DepartureAirportId = table.Column<int>(type: "int", nullable: false),
-                    ArrivalAirportId = table.Column<int>(type: "int", nullable: false),
+                    FlightName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    DepartureAirport = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ArrivalAirport = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DepartureDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ArrivalDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -34,17 +34,13 @@ namespace FlightBookingSystemAPI.Migrations
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Dob = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nationality = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,24 +51,16 @@ namespace FlightBookingSystemAPI.Migrations
                 name: "MasterBookings",
                 columns: table => new
                 {
-                    BookingId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookingId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     FlightId = table.Column<int>(type: "int", nullable: false),
                     BookingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BookingStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PaymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SeatClass = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SpecialRequests = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BaggageAllowance = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BookingStatus = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PaymentStatus = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    SeatClass = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     TotalBagsChecked = table.Column<int>(type: "int", nullable: false),
                     TotalPassengers = table.Column<int>(type: "int", nullable: false),
-                    FlightType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FlightType = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,8 +86,10 @@ namespace FlightBookingSystemAPI.Migrations
                     CheckinId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MasterBookingId = table.Column<int>(type: "int", nullable: false),
+                    BookingId = table.Column<int>(type: "int", nullable: false),
+                    SeatNumber = table.Column<int>(type: "int", nullable: false),
                     CheckinDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CheckinStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CheckinStatus = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -121,7 +111,7 @@ namespace FlightBookingSystemAPI.Migrations
                     BookingId = table.Column<int>(type: "int", nullable: false),
                     PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AmountPaid = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PaymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PaymentStatus = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     MasterBookingBookingId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

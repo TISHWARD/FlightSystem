@@ -5,7 +5,7 @@
 namespace FlightBookingSystemAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial2 : Migration
+    public partial class add4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
