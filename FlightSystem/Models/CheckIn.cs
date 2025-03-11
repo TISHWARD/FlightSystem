@@ -6,7 +6,6 @@ namespace FlightBookingSystemAPI.Models
     public class CheckIn
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CheckinId { get; set; }
         public int MasterBookingId { get; set; }
 

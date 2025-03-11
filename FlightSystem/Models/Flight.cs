@@ -6,7 +6,6 @@ namespace FlightBookingSystemAPI.Models
     public class Flight
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FlightId { get; set; }
 
         [Required]
